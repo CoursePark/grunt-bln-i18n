@@ -23,7 +23,12 @@ module.exports = function(grunt) {
 				}
 			});
 			keys = _.chain(keys).uniq().sort().value();
-			grunt.file.write(file.dest, '[\n\t"' + keys.join('",\n\t"') + '"\n]\n');
+			if (keys.length) {
+				grunt.file.write(file.dest, '[\n\t"' + keys.join('",\n\t"') + '"\n]\n');
+			}
+			else {
+				grunt.file.write(file.dest, '[]\n');
+			}
 			grunt.log.writeln(keys.length + ' translation keys extracted to ' + file.dest + '.');
 		});
 	});
