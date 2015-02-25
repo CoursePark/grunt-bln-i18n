@@ -1,0 +1,22 @@
+{
+	"name": "grunt-bln-i18n",
+	"description": "BLN i18n utilitties.",
+	"version": "0.1.3",
+	"author": {
+		"name": "Bluedrop Learning Networks",
+		"url": "http://www.bluedrop.com/"
+	},
+	"engines": {
+		"node": ">=0.10.0"
+	},
+	"dependencies": {
+		"l20n": "1.0.2",
+		"lodash": "2.4.1"
+	},
+	"devDependencies": {
+	},
+	"files": [
+		"tasks"
+	],
+	"private": true
+}
