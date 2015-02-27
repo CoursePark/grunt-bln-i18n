@@ -49,6 +49,11 @@ module.exports = function(grunt) {
 		compiler.addEventListener('error', function (e) {
 			grunt.fail.fatal('Error while compiling translation entries: ' + e);
 		});
+		_.each(keys, function (key) {
+			if (key[0] == '_') {
+				grunt.log.errorlns('Key <' + key + '> should not start with an underscore!');
+			}
+		});
 		_.each(this.filesSrc, function (file) {
 			grunt.log.writeln('Checking file ' + file + '...');
 			var contents = grunt.file.read(file, {encoding: 'utf-8'});
@@ -61,7 +66,7 @@ module.exports = function(grunt) {
 			});
 		});
 		if (this.errorCount) {
-			grunt.fail.fatal('Missing keys encountered.');
+			grunt.fail.fatal('Missing or invalid keys encountered.');
 		}
 	});
 };
