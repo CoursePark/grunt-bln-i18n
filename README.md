@@ -88,3 +88,14 @@ will be logged. The task is marked as failed if any file has any missing keys.
 Type: `String`
 
 A JSON file containing array of keys to search for in translation files.
+
+
+## Development
+We use `grunt` as our task runner so make sure you have it installed globally
+for your `node`.
+
+To lint the code and run tests use:
+
+```shell
+grunt test
+```
