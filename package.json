@@ -1,7 +1,7 @@
 {
 	"name": "grunt-bln-i18n",
 	"description": "BLN i18n utilitties.",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"author": {
 		"name": "Bluedrop Learning Networks",
 		"url": "http://www.bluedrop.com/"
