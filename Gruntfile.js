@@ -26,6 +26,19 @@ module.exports = function (grunt) {
 				files: {
 					src: ['Gruntfile.js', 'tasks/**/*.js']
 				}
+			},
+			test: {
+				options: {
+					globals: {
+						describe: true,
+						it: true,
+						beforeEach: true,
+						afterEach: true
+					}
+				},
+				files: {
+					src: ['test/**/*.js']
+				}
 			}
 		},
 		lintspaces: {
@@ -38,9 +51,15 @@ module.exports = function (grunt) {
 			js: {
 				src: [
 					'tasks/**/*.js',
+					'test/**/*.js',
 					'*.js',
 					'*.json'
 				]
+			}
+		},
+		mochaTest: {
+			test: {
+				src: ['test/**/*.js']
 			}
 		},
 		exec: {
@@ -50,5 +69,6 @@ module.exports = function (grunt) {
 	
 	grunt.registerTask('setup', ['exec:install']);
 	grunt.registerTask('hint', ['setup', 'jshint', 'lintspaces']);
-	grunt.registerTask('default', ['hint']);
+	grunt.registerTask('test', ['hint', 'mochaTest']);
+	grunt.registerTask('default', ['test']);
 };

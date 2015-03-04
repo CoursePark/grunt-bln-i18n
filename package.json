@@ -1,7 +1,7 @@
 {
 	"name": "grunt-bln-i18n",
 	"description": "BLN i18n utilitties.",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"author": {
 		"name": "Bluedrop Learning Networks",
 		"url": "http://www.bluedrop.com/"
@@ -14,12 +14,17 @@
 		"lodash": "2.4.1"
 	},
 	"devDependencies": {
+		"chai": "2.1.0",
 		"grunt": "0.4.5",
 		"grunt-cli": "0.1.13",
 		"grunt-contrib-jshint": "0.10.0",
 		"grunt-exec": "0.4.6",
 		"grunt-lintspaces": "0.6.0",
-		"load-grunt-tasks": "2.0.0"
+		"grunt-mocha-test": "0.12.7",
+		"load-grunt-tasks": "2.0.0",
+		"mocha": "2.1.0",
+		"sinon": "1.12.2",
+		"sinon-chai": "2.7.0"
 	},
 	"files": [
 		"tasks"
