@@ -24,6 +24,8 @@ An alternative way is to use a plugin loader like `load-grunt-tasks`.
 
 Extracts translation keys from application source.
 
+Uses standard grunt multi-task configuration.
+
 ### Sample configuration
 
 ```js
@@ -41,26 +43,40 @@ Extracts translation keys from application source.
 #### src
 Type: `String|Array`
 
-Application source files. These files will be searched for translation function
+Application source files. These files are searched for translation function
 calls.
 
 #### dest
 Type: `String`
 
-The destination JSON files for storing encountered translation keys. Keys will
-be stored as a sorted array without duplicates. 
+The destination JSON files for storing encountered translation keys. The keys
+are stored as a sorted array without duplicates. 
 
 #### options.keyRegexp
 Type: `RegExp`
 
 Regular expression used to find calls to the translation function. The first
-parenthesized substring match will be used as the resulting translation key.
+parenthesized substring match is used as the resulting translation key.
 
 
 ## i18n-check-keys task
 
-Checks translation files to make sure they are parseable as well as that they
-contain all the expected keys.
+Checks specified translation file content, with expected translation keys
+specified in format matching `i18n-extract-keys` task output.
+
+Translation files checks:
+
+* must be parseable by the [l20n](http://l20n.org) library
+* must contain all the expected translation keys
+
+Expected translation key file checks:
+
+* must be in correct format
+* must not contain any translation keys starting with an underscore (such keys
+  are considered private & internal to each translation file and should not be
+  directly used from application code)
+
+Uses standard grunt multi-task configuration without a destination file.
 
 ### Sample configuration
 
@@ -80,9 +96,11 @@ Type: `String|Array`
 
 Translation files. These files will be checked for validity and key presence.
 Every file will be parsed and compiled using the `l20n` library. If this step
-fails the task will be immediately aborted. Afterwards, the file will be
-checked to make sure that it contains all translation keys. All missing keys
-will be logged. The task is marked as failed if any file has any missing keys.
+fails the task will be immediately aborted.
+
+Afterwards, the files will be checked to make sure that they contain all the
+expected translation keys. Missing keys are will be logged. The task is marked
+as failed if any file has any missing keys.
 
 #### options.keys
 Type: `String`
