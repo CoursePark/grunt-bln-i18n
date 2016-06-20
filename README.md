@@ -66,7 +66,7 @@ specified in format matching `i18n-extract-keys` task output.
 
 Translation files checks:
 
-* must be parseable by the [l20n](http://l20n.org) library
+* must be parsable by the [l20n](http://l20n.org) library
 * must contain all the expected translation keys
 
 Expected translation key file checks:
