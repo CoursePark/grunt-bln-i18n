@@ -6,7 +6,7 @@ var l20n = require('l20n');
 module.exports = function(grunt) {
 	grunt.registerMultiTask('i18n-extract-keys', function () {
 		var options = this.options({
-				keyRegexp: /\b_t\s*\(\s*'(\w+)'([^)]*)?\)/g
+			keyRegexp: /\b_t\s*\(\s*'(\w+)'([^)]*)?\)/g
 		});
 		_.each(this.files, function (file) {
 			var keys = [];
