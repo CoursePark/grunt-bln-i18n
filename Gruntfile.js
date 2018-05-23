@@ -53,7 +53,9 @@ module.exports = function (grunt) {
 					'tasks/**/*.js',
 					'test/**/*.js',
 					'*.js',
-					'*.json'
+					'*.json',
+					'!package.json',
+					'!package-lock.json'
 				]
 			}
 		},
@@ -67,8 +69,7 @@ module.exports = function (grunt) {
 		}
 	});
 	
-	grunt.registerTask('setup', ['exec:install']);
-	grunt.registerTask('hint', ['setup', 'jshint', 'lintspaces']);
+	grunt.registerTask('hint', ['jshint', 'lintspaces']);
 	grunt.registerTask('test', ['hint', 'mochaTest']);
 	grunt.registerTask('default', ['test']);
 };
